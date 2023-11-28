@@ -1,6 +1,6 @@
 # Vite Sandbox Builder
 
-### Description
+## Description
 
 This tool creates a React sandbox using Vite and Bash. In addition to React, it will install and set up the following dependencies:
 
@@ -11,19 +11,19 @@ This tool creates a React sandbox using Vite and Bash. In addition to React, it 
 
 In addition, it will create a Git repo and create an initial commit. If you don't want this tool to perform these Git operations, see the [instructions on how to disable Git operations](#disabling-git-operations).
 
-### Requirements
+## Requirements
 
 This tool requires **NPM** and is written for use on a **Mac**.
 
-### Setup
+## Setup
 
 Open a console and navigate to the folder containing `sb-builder.sh`. Add execution permissions by running `chmod +x sb-builder.sh`.
 
-##### Disabling Git Operations
+### Disabling Git Operations
 
 Running this tool will create a Git repo and create an initial commit. If you don't want this behavior, comment out Lines 68-71 in `sb-builder.sh`. This will disable the Git operations.
 
-### Usage
+## Usage
 
 Ater completing setup, navigate to the folder containing `sb-builder.sh` (if you aren't there already). Then run:
 
