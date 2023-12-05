@@ -8,8 +8,12 @@
 # There must be exactly two arguments
 #   Argument 1: Project folder name (e.g. pwa-sandbox)
 #   Argument 2: Public project name (e.g. "PWA Sandbox")
+script_file="./build-vite.sh"
+program_name="vite-boilerplate"
+template_dir=".vite-sandbox-template"
+
 if [ "$#" -ne 2 ]; then
-  echo "Usage:  ./sb-builder.sh [Project folder name] [Public project name]"
+  echo "Usage:  "${script_file}" [Project folder name] [Public project name]"
   exit 1
 fi
 
@@ -18,7 +22,7 @@ end_color="\e[0m"
 start_blue="\e[36m"
 
 prefix() {
-  local message_prefix='vite-boilerplate:'
+  local message_prefix=${program_name}:
   local message_body="$1"
   printf '%b%b%b ' ${faint} ${message_prefix} ${end_color}
   echo ${message_body}
@@ -41,16 +45,20 @@ npm i -D @types/react-router-dom tailwindcss postcss autoprefixer
 # Remove some unneeded boilerplate files created by Vite
 # Current location: /Sandboxes/[project-folder]/client
 prefix 'Remove unneeded files...'
+
+# These files are completely unneeded; we will just delete them
 rm public/vite.svg
 rm src/App.css
 rm -r src/assets
 rm README.md
+
+# These files will be replace by alternatives in the template folder
 rm index.html
 
 # Copy template files to the project folder
 prefix 'Apply template files...'
 cd ../.. # Now in /Sandboxes
-cp -R .vite-sandbox-template/ ${project_folder}/
+cp -R ${template_dir}/ ${project_folder}/
 
 # Replace instances of Public with the project's public name
 # within template files
